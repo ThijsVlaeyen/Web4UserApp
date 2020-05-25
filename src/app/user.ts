@@ -3,6 +3,8 @@ export class User {
   voornaam: string;
   achternaam: string;
   email: string;
+  status: string;
+  wachtwoord: string;
+  adres: string;
   geslacht: string;
-  leeftijd: number;
 }

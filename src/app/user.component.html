@@ -1,8 +1,18 @@
 <h2>My users</h2>
 <ul class="heroes">
-  <li *ngFor="let user of users">
+  <li *ngFor="let user of users; index as i" (click)="onSelect(user)">
+    <span>Update</span><br/>
     <span>Naam: {{user.voornaam}} {{user.achternaam}}</span><br/>
+    <span>Email: {{user.email}}</span><br/>
+    <span>Status: {{user.status}}</span><br/>
     <span>Geslacht: {{user.geslacht}}</span><br/>
-    <span>Leeftijd: {{user.leeftijd}}</span>
+    <span>Adres: {{user.adres}}</span>
   </li>
 </ul>
+<div *ngIf="user">
+  <h2>{{user.voornaam | titlecase}}'s Status!</h2>
+  <div>
+    <label>Status: </label>
+    <input [(ngModel)]="user.status" placeholder="status" (blur)="update(user)" />
+  </div>
+</div>
